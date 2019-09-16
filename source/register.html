@@ -1,0 +1,78 @@
+---
+title: 登入
+layout: ./source/layout.ejs
+engine: ejs
+current: register
+---
+
+<section class="container px-0 px-md-3 mb-0 mb-md-5">
+  <div class="row no-gutters justify-content-center">
+    <div class="col-md-10">
+      <!-- 標題 hack -->
+      <div class="d-block d-md-none bg-primary">
+        <h1 class="mb-0 py-4 text-center text-white">會員登入</h1>
+      </div>
+
+      <!-- 註冊 -->
+      <div class="row no-gutters flex-md-row-reverse">
+
+        <!-- 註冊_社群 -->
+        <div class="col-md-6 py-md-3">
+          <div class="bg-third p-4 pb-md-5">
+            <h2 class="d-none d-md-block h4 pb-4 text-center text-secondary">
+              —— 連結社群帳號 ——
+            </h2>
+            <div class="row no-gutters ">
+              <div class="col-4 col-md-12 mb-md-3">
+                <button class="btn btn-block btn-brand-light bg-white h-100 py-3">
+                  <img src="./images/ic-facebook-logotype.svg" class="img-fluid" width="100">
+                </button>
+              </div>
+              <div class="col-4 col-md-12 mb-md-3">
+                <button class="btn btn-block btn-brand-light bg-white h-100 py-3">
+                  <img src="./images/ic-google.svg" class="img-fluid" width="90">
+                </button>
+              </div>
+              <div class="col-4 col-md-12 mb-md-3">
+                <button class="btn btn-block btn-brand-light bg-white h-100 py-3">
+                  <img src="./images/ic-yahoo.svg" class="img-fluid" width="100">
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- 註冊_會員 -->
+        <div class="col-md-6">
+          <div class="d-none d-md-block bg-primary">
+            <h1 class="mb-0 py-5 text-center text-white">會員登入</h1>
+          </div>
+          <div class="px-4 pt-5 pt-md-0 bg-primary">
+            <div class="form-square form-square-withicon d-flex justify-content-between mb-3">
+              <label for="username" class="material-icons form-square-icon-left">
+                person
+              </label>
+              <input type="text" name="" class="form-input w-100" placeholder="電子信箱/手機號碼">
+            </div>
+            <div class="form-square form-square-withicon d-flex justify-content-between mb-3">
+              <label for="password" class="material-icons form-square-icon-left">
+                vpn_key
+              </label>
+              <input type="password" name="" class="form-input w-100" placeholder="請輸入使用者密碼">
+            </div>
+            <div class="custom-control custom-checkbox text-white pb-4">
+              <input class="custom-control-input" type="checkbox" name="" id="remember">
+              <label for="remember" class="custom-control-label">記住我</label>
+            </div>
+          </div>
+
+          <a href="#" class="btn btn-block btn-lg py-3 bg-accent">登入帳號</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</section>

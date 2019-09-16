@@ -1,0 +1,49 @@
+.item-card {
+
+  .item-image {
+    position: relative;
+    height: 315px;
+    background-size: cover;
+    background-position: center center;
+
+    .item-tag {
+      position: relative;
+      display: inline-block;
+      top: 0px;
+      left: 20px;
+      padding: .5rem;
+      background-color: theme-color("primary");
+      writing-mode: vertical-rl;
+      letter-spacing: .2rem;
+      color: white;
+    }
+
+    .item-stared-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.25rem;
+    }
+  } 
+
+  .item-body {
+    display: flex;
+    text-align: center;
+    font-size: 1rem*1.25;
+    color: theme-color("primary");
+
+    .item-name {
+      flex: 0 1 60%;
+      padding: .5rem 1rem;
+      border-left: 1px solid theme-color("third");
+      border-right: 1px solid theme-color("third")
+    }
+    .item-price {
+      flex: 0 1 40%;
+      padding: .5rem 1rem;
+      font-weight: 700;
+      border-right: 1px solid theme-color("third")
+    }
+  }
+
+}

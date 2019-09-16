@@ -1,0 +1,74 @@
+/* ----- TOC ------
+
+pic
+write-mode
+
+-------------------*/
+
+
+
+// pic ------------
+.img-100 {
+  width: 100%;
+  height: 100%;
+}
+.img-square-wrap {
+  width: 100%;
+  height: 0px;
+  padding-bottom: 100%;
+  position: relative;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+.img-md-square-wrap {
+  @include media-breakpoint-up(md) {
+    width: 100%;
+    height: 0px;
+    padding-bottom: 100%;
+    position: relative;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.img-cover {
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.bg-cover {
+  background-size: cover;
+  background-position: center center;
+}
+
+
+// write-mode ----------
+.writing-vertical {
+  writing-mode: vertical-rl;
+}
+.writing-vertical-md {
+  @include media-breakpoint-up(md) {
+    writing-mode: vertical-rl;
+  }
+}
+
+
+// --------------------
+
+.mx-negative-row {
+  margin-left: -15px;
+  margin-right: -15px;
+  @include media-breakpoint-up(md) { 
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

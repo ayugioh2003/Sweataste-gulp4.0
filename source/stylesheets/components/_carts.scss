@@ -1,0 +1,58 @@
+.carts {
+
+  .cart-img  {
+    width: 70%;
+    @include media-breakpoint-up(md) {
+      & {
+        width: 110px;
+        height: 110px;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+
+  }
+  .cart-info {
+    flex-grow: 1;
+    align-items: center;
+    @include media-breakpoint-up(md) {
+      & {
+        justify-content: space-evenly;
+      }
+    }
+  }
+  .cart-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cart-input {
+    align-items: center;
+    input, button {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  .cart-msg-box {
+    
+    @include media-breakpoint-up(md) {
+      background-color: theme-color("primary");
+      color: white;
+    }
+
+    .cart-msg-title {
+      background-color: theme-color("third");
+      @include media-breakpoint-up(md) {
+        background-color: theme-color("primary");
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,22 @@
+.form-square {
+  background-color: theme-color("third");
+
+  &.form-square-withicon {
+    position: relative;
+    padding-left: 60px;
+  }
+
+  .form-square-icon-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  .form-input {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: none;
+    outline: none;
+    background-color: theme-color("third");
+  }
+
+}

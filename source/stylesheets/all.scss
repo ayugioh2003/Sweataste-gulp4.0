@@ -1,0 +1,23 @@
+// 需要載入的
+@import "functions";
+@import "helpers/_variables";
+@import "bootstrap";
+
+// 各個頁面
+@import "pages/layout.scss";
+@import "pages/index.scss";
+
+// 區塊式內容
+@import "components/header";
+@import "components/section";
+@import "components/item-card";
+@import "components/carts";
+
+// 元件
+@import "components/form-square";
+@import "components/process-steps";
+@import "components/interactive"; // 互動元件
+@import "components/custom-bs4";  // Bootstrap 4 調整
+
+// 通用類別
+@import "components/utilities";

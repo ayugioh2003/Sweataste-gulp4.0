@@ -1,0 +1,142 @@
+---
+title: 訂單-付款資料
+layout: ./source/layout.ejs
+engine: ejs
+current: checkout-2
+---
+
+<div class="container px-0 px-md-7">
+  <div class="row">
+    <!-- 付款資訊 -->
+    <div class="col-md-8">
+      <div class=" bg-primary text-white p-4">
+
+        <div class="form-row mb-3">
+          <div class="col">
+            <h1 class="text-third">付款</h1>
+          </div>
+          <div class="col-6 d-flex align-items-center">
+            <div class="process-steps  w-100">
+              <div class="step-circle material-icons completed">done</div>
+              <div class="step-circle material-icons active"></div>
+              <div class="step-circle material-icons"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="creditNum" class="h4">信用卡卡號</label>
+          <div class="input-group input-group-lg">
+            <input id="creditNum" type="text" class="form-control bg-third border-right-0"
+              placeholder="1234-5678-9012-3456">
+            <div class="input-group-append">
+              <span class="input-group-text material-icons text-primary">credit_card</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-12">
+            <label for="lastname" class="h4">持卡人姓名</label>
+          </div>
+          <div class="form-group col-6">
+            <input id="lastname" type="text" class="form-control form-control-lg bg-third" placeholder="王">
+          </div>
+          <div class="form-group col-6">
+            <input id="firstname" type="text" class="form-control form-control-lg bg-third" placeholder="阿明">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-12">
+            <label for="month" class="h4">有效期限</label>
+          </div>
+          <div class="form-group col-6">
+            <input id="month" type="number" class="form-control form-control-lg bg-third" placeholder="月" min="1"
+              max="12">
+          </div>
+          <div class="form-group col-6">
+            <input id="year" type="number" class="form-control form-control-lg bg-third" placeholder="年" min="2019"
+              max="2050">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-6">
+            <label for="CVV2" class="h4">背後末三碼</label>
+            <input id="CVV2" type="text" class="form-control form-control-lg bg-third" placeholder="123">
+          </div>
+        </div>
+
+      </div>
+      <div>
+        <a href="./checkout-3.html" class="btn btn-block btn-lg btn-accent text-primary py-3">下一步</a>
+      </div>
+    </div>
+    <!-- 購物資訊 -->
+    <div class="col-md-4 d-none d-md-block">
+      <div class="card border-third mb-3">
+        <div class="card-header border-0 text-center text-secondary bg-third h4">
+          訂單摘要
+        </div>
+        <div class="card-body text-secondary">
+          <div class="d-flex justify-content-between mb-2">
+            <div>小計</div>
+            <div>NT$ 2,700</div>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <div>運費</div>
+            <div>NT$ 300</div>
+          </div>
+          <div class="d-flex justify-content-between h4">
+            <div>總計</div>
+            <div>NT$ 3,000</div>
+          </div>
+        </div>
+      </div>
+      <div class="card border-third mb-3">
+        <div class="card-header border-0 text-center text-secondary bg-third h4">
+          購物清單
+        </div>
+        <div class="card-body text-secondary carts">
+
+          <div class="d-flex mb-3">
+            <div class="cart-img">
+              <img src="https://bit.ly/2OhbMHr" alt="">
+            </div>
+            <div class="cart-info d-flex flex-column flex-md-row">
+              <div class="cart-text">
+                <div class="cart-itemname">焦糖馬卡龍(2)</div>
+                <div class="cart-dollar h4">NT$900</div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex mb-3">
+            <div class="cart-img">
+              <img src="https://bit.ly/2OhbMHr" alt="">
+            </div>
+            <div class="cart-info d-flex flex-column flex-md-row">
+              <div class="cart-text">
+                <div class="cart-itemname">焦糖馬卡龍(2)</div>
+                <div class="cart-dollar h4">NT$900</div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="cart-img">
+              <img src="https://bit.ly/2OhbMHr" alt="">
+            </div>
+            <div class="cart-info d-flex flex-column flex-md-row">
+              <div class="cart-text">
+                <div class="cart-itemname">焦糖馬卡龍(2)</div>
+                <div class="cart-dollar h4">NT$900</div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

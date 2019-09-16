@@ -1,0 +1,70 @@
+.header {
+  $main-height: 496px;
+
+  // header 子元件
+  .header-main-image {
+    // width: auto;
+    height: $main-height;
+  }
+  .rectangle-section {
+    margin-top: -90px;
+  }
+  .rectangle-image-wrap {
+    $rectangle-image-height: 256px;
+
+    display: block;
+    position: relative;
+    width: 33.33333%;
+    height: $rectangle-image-height;
+
+    overflow: hidden;
+    color: white;
+    border: 1px solid white;
+    
+    .rectangle-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      writing-mode: vertical-rl;
+      font-size: 1.5rem;
+      letter-spacing: .3rem;
+      z-index: 2; 
+    }
+    .rectangle-image {
+      width: 100%;
+      height: 100%;  
+      filter: blur(5px);
+    }
+
+    &.active {
+      color: theme-color("primary");
+      &::after {
+        background-color: rgba($color: theme-color("accent"), $alpha: .7);
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($color: theme-color("primary"), $alpha: .7);
+      transition: background-color .3s;
+      // z-index: 1;
+    }
+
+    &:hover {
+      color: theme-color("primary");
+      .rectangle-image {
+        filter: blur(0);
+      }
+      &::after {
+        background-color: rgba($color: theme-color("accent"), $alpha: .7);
+      }
+    }
+
+  }
+}

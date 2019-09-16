@@ -1,0 +1,9 @@
+.vscode
+.publish
+node_modules
+public
+bower_components
+.tmp
+.xd
+package-lock.json
+sweetaste-layout.xd
