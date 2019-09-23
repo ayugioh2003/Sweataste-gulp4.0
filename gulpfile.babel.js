@@ -1,4 +1,5 @@
 import gulp from 'gulp'
+import del from 'del'
 
 /*****************************************************
  * Hello gulp block
@@ -30,4 +31,12 @@ export function copyHTML() {
 export function cpBsVar() {
   return gulp.src('./node_module/bootstrap/scss/_variables.scss')
     .pipe(gulp.dest('.source/stylesheets/hellper/'))
+}
+
+
+/*****************************************************
+ * 清除暫存 block
+ *****************************************************/
+export function cleanPublic() {
+  return del(['./public', './.tmp'])
 }

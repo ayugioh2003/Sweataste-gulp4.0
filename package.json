@@ -12,6 +12,8 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/register": "^7.6.0",
+    "del": "^5.1.0",
     "gulp": "^4.0.2"
-  }
+  },
+  "dependencies": {}
 }
