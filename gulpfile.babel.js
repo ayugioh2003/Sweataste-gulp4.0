@@ -1,6 +1,8 @@
 import gulp from 'gulp'
 import del from 'del'
 
+const $ = require('gulp-load-plugins')();
+
 /*****************************************************
  * Hello gulp block
  *****************************************************/
@@ -33,10 +35,30 @@ export function cpBsVar() {
     .pipe(gulp.dest('.source/stylesheets/hellper/'))
 }
 
+export function copy() {
+  gulp.src(['./source/**/**','!source/javascripts/**/**', '!source/stylesheets/**/**', '!source/**/*.ejs', '!source/**/*.html'])
+    .pipe(gulp.dest('./public'))
+}
+
 
 /*****************************************************
  * 清除暫存 block
  *****************************************************/
-export function cleanPublic() {
+export function clean() {
   return del(['./public', './.tmp'])
+}
+
+
+/*****************************************************
+ * HTML 處理 block
+ *****************************************************/
+export function ejs() {
+  return  gulp.src(['./source/**/*.ejs', './source/**/*.html'])
+    .pipe($.frontMatter())
+    .pipe(
+      $.layout((file) => {
+        return file.frontMatter;
+      }),
+    )
+    .pipe(gulp.dest('./public'))
 }
