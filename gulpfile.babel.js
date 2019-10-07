@@ -1,64 +1,100 @@
-import gulp from 'gulp'
-import del from 'del'
+import gulp from "gulp";
+import del from "del";
+import autoprefixer from "autoprefixer";
 
-const $ = require('gulp-load-plugins')();
+const $ = require("gulp-load-plugins")();
 
 /*****************************************************
  * Hello gulp block
  *****************************************************/
-gulp.task('hello3', function(cb){
-  console.log('hello gulp 3.9.1')
-  cb()
-})
+gulp.task("hello3", function(cb) {
+  console.log("hello gulp 3.9.1");
+  cb();
+});
 
 function hello4CommonJS(cb) {
-  console.log('hello gulp 4.0, CommonJS format' )
+  console.log("hello gulp 4.0, CommonJS format");
   cb();
 }
-exports.hello4CommonJS = hello4CommonJS
+exports.hello4CommonJS = hello4CommonJS;
 
 export function hello4ES6(cb) {
-  console.log('hello gulp 4.0, ES6 format')
-  cb()
+  console.log("hello gulp 4.0, ES6 format");
+  cb();
 }
 
 /*****************************************************
  * 複製檔案 block
  *****************************************************/
 export function copyHTML() {
-  return gulp.src('./source/**/*.html')
-    .pipe(gulp.dest('./public'))
+  return gulp.src("./source/**/*.html").pipe(gulp.dest("./public"));
 }
 
 export function cpBsVar() {
-  return gulp.src('./node_module/bootstrap/scss/_variables.scss')
-    .pipe(gulp.dest('.source/stylesheets/hellper/'))
+  return gulp
+    .src("./node_module/bootstrap/scss/_variables.scss")
+    .pipe(gulp.dest(".source/stylesheets/hellper/"));
 }
 
 export function copy() {
-  gulp.src(['./source/**/**','!source/javascripts/**/**', '!source/stylesheets/**/**', '!source/**/*.ejs', '!source/**/*.html'])
-    .pipe(gulp.dest('./public'))
+  gulp
+    .src([
+      "./source/**/**",
+      "!source/javascripts/**/**",
+      "!source/stylesheets/**/**",
+      "!source/**/*.ejs",
+      "!source/**/*.html"
+    ])
+    .pipe(gulp.dest("./public"));
 }
-
 
 /*****************************************************
  * 清除暫存 block
  *****************************************************/
 export function clean() {
-  return del(['./public', './.tmp'])
+  return del(["./public", "./.tmp"]);
 }
-
 
 /*****************************************************
  * HTML 處理 block
  *****************************************************/
 export function ejs() {
-  return  gulp.src(['./source/**/*.ejs', './source/**/*.html'])
+  return gulp
+    .src(["./source/**/*.ejs", "./source/**/*.html"])
     .pipe($.frontMatter())
     .pipe(
-      $.layout((file) => {
+      $.layout(file => {
         return file.frontMatter;
-      }),
+      })
     )
-    .pipe(gulp.dest('./public'))
+    .pipe(gulp.dest("./public"));
+}
+
+/*****************************************************
+ * CSS 處理 block
+ *****************************************************/
+export function scss() {
+  // PostCSS AutoPrefixer
+  // const processors = [
+  //   autoprefixer({
+  //     browsers: ["last 5 version"]
+  //   })
+  // ];
+  const processors = [ 
+    autoprefixer()
+  ];
+
+  return gulp
+    .src(["./source/stylesheets/**/*.sass", "./source/stylesheets/**/*.scss"])
+    .pipe($.sourcemaps.init())
+    .pipe(
+      $.sass({
+        outputStyle: "nested",
+        includePaths: ["./node_modules/bootstrap/scss"]
+      }).on("error", $.sass.logError)
+    )
+    .pipe($.postcss(processors))
+    .pipe($.cleanCss())
+    .pipe($.sourcemaps.write("."))
+    .pipe(gulp.dest("./public/stylesheets"));
 }
