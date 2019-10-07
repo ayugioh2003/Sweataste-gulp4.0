@@ -130,3 +130,14 @@ export function babel() {
     .pipe($.sourcemaps.write("."))
     .pipe(gulp.dest("./public/javascripts"))
 }
+
+/*****************************************************
+ *  圖片處理 block
+ *****************************************************/
+export function imageMin(cb) {
+  gulp
+    .src("./source/images/*")
+    .pipe($.imagemin())
+    .pipe(gulp.dest("./public/images"))
+  cb()
+}
