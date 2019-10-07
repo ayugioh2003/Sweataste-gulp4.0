@@ -1,39 +1,39 @@
-import gulp from "gulp";
-import del from "del";
-import autoprefixer from "autoprefixer";
+import gulp from "gulp"
+import del from "del"
+import autoprefixer from "autoprefixer"
 
-const $ = require("gulp-load-plugins")();
+const $ = require("gulp-load-plugins")()
 
 /*****************************************************
  * Hello gulp block
  *****************************************************/
 gulp.task("hello3", function(cb) {
-  console.log("hello gulp 3.9.1");
-  cb();
-});
+  console.log("hello gulp 3.9.1")
+  cb()
+})
 
 function hello4CommonJS(cb) {
-  console.log("hello gulp 4.0, CommonJS format");
-  cb();
+  console.log("hello gulp 4.0, CommonJS format")
+  cb()
 }
-exports.hello4CommonJS = hello4CommonJS;
+exports.hello4CommonJS = hello4CommonJS
 
 export function hello4ES6(cb) {
-  console.log("hello gulp 4.0, ES6 format");
-  cb();
+  console.log("hello gulp 4.0, ES6 format")
+  cb()
 }
 
 /*****************************************************
  * 複製檔案 block
  *****************************************************/
 export function copyHTML() {
-  return gulp.src("./source/**/*.html").pipe(gulp.dest("./public"));
+  return gulp.src("./source/**/*.html").pipe(gulp.dest("./public"))
 }
 
 export function cpBsVar() {
   return gulp
     .src("./node_module/bootstrap/scss/_variables.scss")
-    .pipe(gulp.dest(".source/stylesheets/hellper/"));
+    .pipe(gulp.dest(".source/stylesheets/hellper/"))
 }
 
 export function copy() {
@@ -45,14 +45,14 @@ export function copy() {
       "!source/**/*.ejs",
       "!source/**/*.html"
     ])
-    .pipe(gulp.dest("./public"));
+    .pipe(gulp.dest("./public"))
 }
 
 /*****************************************************
  * 清除暫存 block
  *****************************************************/
 export function clean() {
-  return del(["./public", "./.tmp"]);
+  return del(["./public", "./.tmp"])
 }
 
 /*****************************************************
@@ -64,10 +64,10 @@ export function ejs() {
     .pipe($.frontMatter())
     .pipe(
       $.layout(file => {
-        return file.frontMatter;
+        return file.frontMatter
       })
     )
-    .pipe(gulp.dest("./public"));
+    .pipe(gulp.dest("./public"))
 }
 
 /*****************************************************
@@ -80,9 +80,7 @@ export function scss() {
   //     browsers: ["last 5 version"]
   //   })
   // ];
-  const processors = [ 
-    autoprefixer()
-  ];
+  const processors = [autoprefixer()]
 
   return gulp
     .src(["./source/stylesheets/**/*.sass", "./source/stylesheets/**/*.scss"])
@@ -96,5 +94,39 @@ export function scss() {
     .pipe($.postcss(processors))
     .pipe($.cleanCss())
     .pipe($.sourcemaps.write("."))
-    .pipe(gulp.dest("./public/stylesheets"));
+    .pipe(gulp.dest("./public/stylesheets"))
+}
+
+/*****************************************************
+ *  JS 處理 block
+ *****************************************************/
+export function vendorJS() {
+  return gulp
+    .src([
+      "./node_modules/jquery/dist/jquery.slim.min.js",
+      "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+    ])
+    .pipe($.concat("vendor.js"))
+    .pipe(gulp.dest("./public/javascripts"))
+}
+
+export function babel() {
+  return gulp
+    .src("./source/javascripts/**/*.js")
+    .pipe($.sourcemaps.init())
+    .pipe(
+      $.babel({
+        presets: ["@babel/env"]
+      })
+    )
+    .pipe($.concat("all.js"))
+    .pipe(
+      $.uglify({
+        compress: {
+          drop_console: true
+        }
+      })
+    )
+    .pipe($.sourcemaps.write("."))
+    .pipe(gulp.dest("./public/javascripts"))
 }
