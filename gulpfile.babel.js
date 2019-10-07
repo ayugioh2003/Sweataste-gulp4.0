@@ -217,3 +217,8 @@ exports.buildPro = gulp.series(
   gulp.series(clean, copy),
   gulp.parallel(vendorJS, babel, sass, ejs, imageMin)
 )
+
+function deploy() {
+  return gulp.src("./public/**/*").pipe($.ghPages())
+}
+exports.deploy = deploy
