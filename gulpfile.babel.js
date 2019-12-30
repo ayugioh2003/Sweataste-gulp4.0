@@ -79,6 +79,7 @@ export function clean() {
 export function ejs() {
   return gulp
     .src(["./source/**/*.ejs", "./source/**/*.html"])
+    .pipe($.plumber())
     .pipe($.frontMatter())
     .pipe(
       $.layout(file => {
@@ -103,6 +104,7 @@ export function sass() {
 
   return gulp
     .src(["./source/stylesheets/**/*.sass", "./source/stylesheets/**/*.scss"])
+    .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe(
       $.sass({
@@ -133,6 +135,7 @@ export function vendorJS() {
 export function babel() {
   return gulp
     .src("./source/javascripts/**/*.js")
+    .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe(
       $.babel({
@@ -158,13 +161,13 @@ export function babel() {
 /*****************************************************
  *  圖片處理 block
  *****************************************************/
-export function imageMin(cb) {
+export function imageMin() {
   return gulp
     .src("./source/images/*")
     .pipe($.if(envIsPro, $.imagemin()))
     .pipe(gulp.dest("./public/images"))
     .pipe($.if(envIsPro, browserSync.stream()))
-  cb()
+  
 }
 
 /*****************************************************

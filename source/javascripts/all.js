@@ -1,2 +1,2 @@
 console.log('hahaha')
-var a = 2
+const a = 2
