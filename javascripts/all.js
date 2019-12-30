@@ -1,2 +1,3 @@
-"use strict";var a=2;
+"use strict";console.log('hahaha');
+var a = 2;
 //# sourceMappingURL=all.js.map

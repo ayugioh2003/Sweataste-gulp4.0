@@ -1,1 +1,1 @@
-{"version":3,"sources":["all.js"],"names":["a"],"mappings":"aACA,IAAIA,EAAI","file":"all.js","sourcesContent":["console.log('hahaha')\r\nvar a = 2"]}
+{"version":3,"sources":["all.js"],"names":["console","log","a"],"mappings":"aAAAA,OAAO,CAACC,GAAR,CAAY,QAAZ;AACA,IAAMC,CAAC,GAAG,CAAV","file":"all.js","sourcesContent":["console.log('hahaha')\r\nconst a = 2"]}
